@@ -2,6 +2,7 @@ package com.cst.cstacademy2024.adapters
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -69,7 +70,15 @@ class ZooAdapter(private val items: List<ZooAnimalModel>,
                             weight = 1f
                             // Add any other modifications as needed
                         }
+                    }else {
+                        val layoutParams = layoutParams as? LinearLayout.LayoutParams
+                        layoutParams?.apply {
+                            width = LinearLayout.LayoutParams.MATCH_PARENT // or any default value
+                            height = LinearLayout.LayoutParams.WRAP_CONTENT  // or any default value
+                            weight = 0f  // typically 0 for default
+                        }
                     }
+
                 }
 
                 findViewById<TextView>(R.id.animalContinent).apply {
@@ -102,12 +111,19 @@ class ZooAdapter(private val items: List<ZooAnimalModel>,
                     if (item.continent == "Asia") {
                         val layoutParams = layoutParams as? LinearLayout.LayoutParams
                         layoutParams?.apply {
-                            // Modify layout params here
-                            width =0
+                            width = 0
                             height = LinearLayout.LayoutParams.MATCH_PARENT
                             weight = 1f
                         }
+                    } else {
+                        val layoutParams = layoutParams as? LinearLayout.LayoutParams
+                        layoutParams?.apply {
+                            width = LinearLayout.LayoutParams.MATCH_PARENT // or any default value
+                            height = LinearLayout.LayoutParams.WRAP_CONTENT  // or any default value
+                            weight = 0f  // typically 0 for default
+                        }
                     }
+
                 }
 
                 val background = ContextCompat.getDrawable(itemView.context, R.drawable.rounded_corners) as GradientDrawable

@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
             val navController = navHostFragment.navController
             setupActionBarWithNavController(navController)
         }
+        val closeAppButton = findViewById<Button>(R.id.close_app_button)
+        closeAppButton.setOnClickListener {
+            finish()  // Close the current activity
+        }
+
     }
 
     override fun onStart() {
