@@ -51,91 +51,76 @@ class ZooAnimalListFragment : Fragment() {
 
     fun createAnimalList(): MutableList<ZooAnimalModel> {
         val animals = mutableListOf<ZooAnimalModel>()
-        // Africa
+
+// Africa
         animals.add(ZooAnimalModel(1, "Lion", "Africa", ContinentType.AFRICA))
         animals.add(ZooAnimalModel(2, "Elephant", "Africa", ContinentType.AFRICA))
         animals.add(ZooAnimalModel(3, "Giraffe", "Africa", ContinentType.AFRICA))
         animals.add(ZooAnimalModel(4, "Zebra", "Africa", ContinentType.AFRICA))
         animals.add(ZooAnimalModel(5, "Hippo", "Africa", ContinentType.AFRICA))
+        animals.add(ZooAnimalModel(6, "Cheetah", "Africa", ContinentType.AFRICA))
+        animals.add(ZooAnimalModel(7, "Rhinoceros", "Africa", ContinentType.AFRICA))
 
-        // Asia
-        animals.add(ZooAnimalModel(6, "Panda", "Asia", ContinentType.ASIA))
-        animals.add(ZooAnimalModel(7, "Tiger", "Asia", ContinentType.ASIA))
-        animals.add(ZooAnimalModel(8, "Monkey", "Asia", ContinentType.ASIA))
-        animals.add(ZooAnimalModel(9, "Snake", "Asia", ContinentType.ASIA))
-        animals.add(ZooAnimalModel(10, "Bear", "Asia", ContinentType.ASIA))
+// Asia
+        animals.add(ZooAnimalModel(8, "Panda", "Asia", ContinentType.ASIA))
+        animals.add(ZooAnimalModel(9, "Tiger", "Asia", ContinentType.ASIA))
+        animals.add(ZooAnimalModel(10, "Monkey", "Asia", ContinentType.ASIA))
+        animals.add(ZooAnimalModel(11, "Snake", "Asia", ContinentType.ASIA))
+        animals.add(ZooAnimalModel(12, "Bear", "Asia", ContinentType.ASIA))
+        animals.add(ZooAnimalModel(13, "Camel", "Asia", ContinentType.ASIA))
 
-        // Australia
-        animals.add(ZooAnimalModel(11, "Kangaroo", "Australia", ContinentType.AUSTRALIA))
-        animals.add(ZooAnimalModel(12, "Koala", "Australia", ContinentType.AUSTRALIA))
-        animals.add(ZooAnimalModel(13, "Emu", "Australia", ContinentType.AUSTRALIA))
-        animals.add(ZooAnimalModel(14, "Platypus", "Australia", ContinentType.AUSTRALIA))
-        animals.add(ZooAnimalModel(15, "Wallaby", "Australia", ContinentType.AUSTRALIA))
+// Australia
+        animals.add(ZooAnimalModel(14, "Kangaroo", "Australia", ContinentType.AUSTRALIA))
+        animals.add(ZooAnimalModel(15, "Koala", "Australia", ContinentType.AUSTRALIA))
+        animals.add(ZooAnimalModel(16, "Emu", "Australia", ContinentType.AUSTRALIA))
+        animals.add(ZooAnimalModel(17, "Platypus", "Australia", ContinentType.AUSTRALIA))
+        animals.add(ZooAnimalModel(18, "Wallaby", "Australia", ContinentType.AUSTRALIA))
 
-        // Antarctica
-        animals.add(ZooAnimalModel(16, "Penguin", "Antarctica", ContinentType.ANTARCTICA))
-        animals.add(ZooAnimalModel(17, "Seal", "Antarctica", ContinentType.ANTARCTICA))
-        animals.add(ZooAnimalModel(18, "Whale", "Antarctica", ContinentType.ANTARCTICA))
-        animals.add(ZooAnimalModel(19, "Albatross", "Antarctica", ContinentType.ANTARCTICA))
-        animals.add(ZooAnimalModel(20, "Orca", "Antarctica", ContinentType.ANTARCTICA))
+// Antarctica
+        animals.add(ZooAnimalModel(19, "Penguin", "Antarctica", ContinentType.ANTARCTICA))
+        animals.add(ZooAnimalModel(20, "Seal", "Antarctica", ContinentType.ANTARCTICA))
+        animals.add(ZooAnimalModel(21, "Whale", "Antarctica", ContinentType.ANTARCTICA))
+        animals.add(ZooAnimalModel(22, "Albatross", "Antarctica", ContinentType.ANTARCTICA))
+        animals.add(ZooAnimalModel(23, "Orca", "Antarctica", ContinentType.ANTARCTICA))
 
-        // North America
-        animals.add(ZooAnimalModel(21, "Grizzly Bear", "North America", ContinentType.NORTH_AMERICA))
-        animals.add(ZooAnimalModel(22, "Bald Eagle", "North America", ContinentType.NORTH_AMERICA))
-        animals.add(ZooAnimalModel(23, "Bison", "North America", ContinentType.NORTH_AMERICA))
-        animals.add(ZooAnimalModel(24, "Raccoon", "North America", ContinentType.NORTH_AMERICA))
-        animals.add(ZooAnimalModel(25, "Cougar", "North America", ContinentType.NORTH_AMERICA))
+// North America
+        animals.add(ZooAnimalModel(24, "Grizzly Bear", "North America", ContinentType.NORTH_AMERICA))
+        animals.add(ZooAnimalModel(25, "Bald Eagle", "North America", ContinentType.NORTH_AMERICA))
+        animals.add(ZooAnimalModel(26, "Bison", "North America", ContinentType.NORTH_AMERICA))
+        animals.add(ZooAnimalModel(27, "Raccoon", "North America", ContinentType.NORTH_AMERICA))
+        animals.add(ZooAnimalModel(28, "Cougar", "North America", ContinentType.NORTH_AMERICA))
 
-        // South America
-        animals.add(ZooAnimalModel(26, "Jaguar", "South America", ContinentType.SOUTH_AMERICA))
-        animals.add(ZooAnimalModel(27, "Llama", "South America", ContinentType.SOUTH_AMERICA))
-        animals.add(ZooAnimalModel(28, "Sloth", "South America", ContinentType.SOUTH_AMERICA))
-        animals.add(ZooAnimalModel(29, "Anaconda", "South America", ContinentType.SOUTH_AMERICA))
-        animals.add(ZooAnimalModel(30, "Toucan", "South America", ContinentType.SOUTH_AMERICA))
+// South America
+        animals.add(ZooAnimalModel(29, "Jaguar", "South America", ContinentType.SOUTH_AMERICA))
+        animals.add(ZooAnimalModel(30, "Llama", "South America", ContinentType.SOUTH_AMERICA))
+        animals.add(ZooAnimalModel(31, "Sloth", "South America", ContinentType.SOUTH_AMERICA))
+        animals.add(ZooAnimalModel(32, "Anaconda", "South America", ContinentType.SOUTH_AMERICA))
+        animals.add(ZooAnimalModel(33, "Toucan", "South America", ContinentType.SOUTH_AMERICA))
+
+// Europe
+        animals.add(ZooAnimalModel(34, "Wolf", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(35, "Brown Bear", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(36, "Red Fox", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(37, "European Bison", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(38, "Chamois", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(39, "Iberian Lynx", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(40, "Moose", "Europe", ContinentType.EUROPE))
+
+// Additional Animals to Reach 50
+        animals.add(ZooAnimalModel(41, "Reindeer", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(42, "White Stork", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(43, "Griffon Vulture", "Europe", ContinentType.EUROPE))
+        animals.add(ZooAnimalModel(44, "Elk", "North America", ContinentType.NORTH_AMERICA))
+        animals.add(ZooAnimalModel(45, "Bobcat", "North America", ContinentType.NORTH_AMERICA))
+        animals.add(ZooAnimalModel(46, "Arctic Fox", "Antarctica", ContinentType.ANTARCTICA))
+        animals.add(ZooAnimalModel(47, "Leopard Seal", "Antarctica", ContinentType.ANTARCTICA))
+        animals.add(ZooAnimalModel(48, "Dingo", "Australia", ContinentType.AUSTRALIA))
+        animals.add(ZooAnimalModel(49, "Cassowary", "Australia", ContinentType.AUSTRALIA))
+        animals.add(ZooAnimalModel(50, "Snow Leopard", "Asia", ContinentType.ASIA))
 
         return animals
     }
 
-
-
-
-//    private fun createSampleZooAnimalList(): List<ZooAnimalModel> {
-////        return listOf(
-////            ZooAnimalModel(1, "Lion", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(2, "Panda", "Asia", ContinentType.ASIA),
-////            ZooAnimalModel(3, "Kangaroo", "Australia", ContinentType.AUSTRALIA),
-////            ZooAnimalModel(4, "Polar Bear", "Antarctica", ContinentType.ANTARCTICA),
-////            ZooAnimalModel(5, "Elephant", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(6, "Grizzly Bear", "North America", ContinentType.NORTH_AMERICA),
-////            ZooAnimalModel(7, "Koala", "Australia", ContinentType.AUSTRALIA),
-////            ZooAnimalModel(8, "Giraffe", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(9, "Penguin", "Antarctica", ContinentType.ANTARCTICA),
-////            ZooAnimalModel(10, "Zebra", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(11, "Koala", "Australia", ContinentType.AUSTRALIA),
-////            ZooAnimalModel(12, "Polar Bear", "Antarctica", ContinentType.ANTARCTICA),
-////            ZooAnimalModel(13, "Elephant", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(14, "Grizzly Bear", "North America", ContinentType.NORTH_AMERICA),
-////            ZooAnimalModel(15, "Koala", "Australia", ContinentType.AUSTRALIA),
-////            ZooAnimalModel(16, "Giraffe", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(17, "Penguin", "Antarctica", ContinentType.ANTARCTICA),
-////            ZooAnimalModel(18, "Zebra", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(19, "Koala", "Australia", ContinentType.AUSTRALIA),
-////            ZooAnimalModel(20, "Polar Bear", "Antarctica", ContinentType.ANTARCTICA),
-////            ZooAnimalModel(21, "Elephant", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(22, "Grizzly Bear", "North America", ContinentType.NORTH_AMERICA),
-////            ZooAnimalModel(23, "Koala", "Australia", ContinentType.AUSTRALIA),
-////            ZooAnimalModel(24, "Giraffe", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(25, "Penguin", "Antarctica", ContinentType.ANTARCTICA),
-////            ZooAnimalModel(26, "Zebra", "Africa", ContinentType.AFRICA),
-////            ZooAnimalModel(27, "Koala", "Australia", ContinentType.AUSTRALIA),
-////
-////        )
-//
-//        val animals = mutableListOf<ZooAnimalModel>()
-//
-//
-//        return animals
-//    }
 
     private fun setupZooAnimalList(zooAnimals: List<ZooAnimalModel>) {
         val layoutManager = LinearLayoutManager(context)
