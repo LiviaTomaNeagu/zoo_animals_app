@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -19,6 +23,8 @@ import com.cst.cstacademy2024.models.ZooAnimalModel
 class ZooAnimalListFragment : Fragment() {
 
 //    private val arguments: ZooAnimalListFragmentArgs by navArgs()
+    private val id = 0
+    private val zooAnimals: MutableList<ZooAnimalModel> = getAnimals().toMutableList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -26,16 +32,58 @@ class ZooAnimalListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val token = arguments.token
-//        token.logErrorMessage()
-        fetchZooAnimals()
 
-    }
+        val recyclerView: RecyclerView = view?.findViewById(R.id.rv_zoo_animal_list) ?: return
+        val layoutManager = LinearLayoutManager(context)
+        val adapter = ZooAdapter(zooAnimals)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
+        val decoration = SpacesItemDecoration(spaceSize = resources.getDimensionPixelSize(R.dimen.recycler_view_item_spacing))
+        recyclerView.addItemDecoration(decoration)
 
-    private fun fetchZooAnimals() {
-        // Placeholder for an API call to get zoo animals
-        val zooAnimals = getAnimals()  // Simulated data fetch
-        setupZooAnimalList(zooAnimals)
+        setupZooAnimalList()
+        val addButton = view.findViewById<Button>(R.id.btn_add_animal)
+
+        addButton.setOnClickListener {
+            val nameEdit = view.findViewById<EditText>(R.id.edit_name)
+            val name = nameEdit.text.toString()
+
+            val continentEdit = view.findViewById<EditText>(R.id.edit_continent)
+            val continent = continentEdit.text.toString()
+
+            val trimmedName = name.trim()
+            val trimmedContinent = continent.trim()
+
+            if (trimmedName.isNotEmpty() && trimmedContinent.isNotEmpty()) {
+                val newAnimal = ZooAnimalModel(id, getStringCapitalized(trimmedName), getStringCapitalized(trimmedContinent), getContinent(trimmedContinent))
+                if (!isAnimalAlreadyAdded(newAnimal)) {
+                    zooAnimals.add(newAnimal) // Adăugați noul element la începutul listei
+                    adapter.notifyItemInserted(zooAnimals.size) // Notificați adaptorul că un nou element a fost inserat la poziția 0
+                   // recyclerView.scrollToPosition(0) // Derulați la început pentru a vă asigura că noul element este vizibil
+                    nameEdit.text.clear()
+                    continentEdit.text.clear()
+                    Toast.makeText(requireContext(), "The animal has been added to the list!", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Animalul există deja în listă, afișați un mesaj corespunzător
+                    Toast.makeText(requireContext(), "The animal is already on the list!", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                if (trimmedName.isEmpty() || name.isBlank()) {
+                    nameEdit.error = "Please enter a name"
+                }
+                if (trimmedContinent.isEmpty() || continent.isBlank()) {
+                    continentEdit.error = "Please enter a continent"
+                }
+            }
+        }
+
+        adapter.setOnDeleteClickListener { position ->
+            // Remove the item from the list at the specified position
+            zooAnimals.removeAt(position)
+            // Notify the adapter that the item has been removed
+            adapter.notifyItemRemoved(position)
+        }
+
     }
 
     companion object {
@@ -44,7 +92,7 @@ class ZooAnimalListFragment : Fragment() {
 
     fun getAnimals(): List<ZooAnimalModel> {
         if (animals_list == null) {
-            animals_list = createAnimalList().shuffled()
+            animals_list = createAnimalList()
         }
         return animals_list!!
     }
@@ -120,22 +168,50 @@ class ZooAnimalListFragment : Fragment() {
 
         return animals
     }
-
-
-    private fun setupZooAnimalList(zooAnimals: List<ZooAnimalModel>) {
+    private fun setupZooAnimalList() {
         val layoutManager = LinearLayoutManager(context)
-//        val adapter = ZooAdapter(zooAnimals)
-        val adapter = ZooAdapter(zooAnimals) { animalName, continent, color ->
-            val action = ZooAnimalListFragmentDirections
-                .actionZooAnimalListFragmentToAnimalDetailFragment(animalName, continent, color)
-            findNavController().navigate(action)
+        val adapter = ZooAdapter(zooAnimals)
+        adapter.setOnDeleteClickListener{ position ->
+            zooAnimals.removeAt(position)
+            (view?.findViewById<RecyclerView>(R.id.rv_zoo_animal_list)?.adapter as? ZooAdapter)?.notifyItemRemoved(position)
         }
         view?.findViewById<RecyclerView>(R.id.rv_zoo_animal_list)?.apply {
             this.layoutManager = layoutManager
             this.adapter = adapter
-            // Adaugă ItemDecoration pentru spațiere
-            val decoration = SpacesItemDecoration(spaceSize = resources.getDimensionPixelSize(R.dimen.recycler_view_item_spacing))
-            addItemDecoration(decoration)
         }
     }
+
+
+
+    private fun getContinent(continent: String): ContinentType {
+        val lowercaseContinent = continent.toLowerCase()
+        return when (lowercaseContinent) {
+            "africa" -> ContinentType.AFRICA
+            "asia" -> ContinentType.ASIA
+            "australia" -> ContinentType.AUSTRALIA
+            "antarctica" -> ContinentType.ANTARCTICA
+            "north America" -> ContinentType.NORTH_AMERICA
+            "south America" -> ContinentType.SOUTH_AMERICA
+            "europe" -> ContinentType.EUROPE
+            else -> ContinentType.OTHER
+        }
+    }
+    private fun isAnimalAlreadyAdded(newAnimal: ZooAnimalModel): Boolean {
+        for (existingAnimal in zooAnimals) {
+            if (existingAnimal.animalName.lowercase() == newAnimal.animalName.lowercase() && existingAnimal.continent == newAnimal.continent) {
+                return true
+            }
+        }
+        // Animalul nu există în listă
+        return false
+    }
+
+    private fun getStringCapitalized(animalName: String): String {
+        // Transformă numele animalului în litere mici
+        val lowercaseName = animalName.toLowerCase()
+        // Capitalizează prima literă
+        return lowercaseName.capitalize()
+    }
+
+
 }

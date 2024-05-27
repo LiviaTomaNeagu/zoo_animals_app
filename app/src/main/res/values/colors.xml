@@ -11,4 +11,7 @@
     <color name="pink">#E91E63</color>
     <color name="grey">#9E9E9E</color>
     <color name="brown">#795548</color>
+    <color name="button_color">#eb8e9a</color>
+    <color name="button_color_pressed">#d17f8f</color>
+    <color name="button_color_focused">#D1ADB6</color>
 </resources>

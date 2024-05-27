@@ -1,26 +1,43 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/animalItemLayout"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:layout_marginVertical="4dp"
+    android:layout_marginHorizontal="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+   >
 
-    <TextView
-        android:id="@+id/animalName"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/gradient_background">
+            <LinearLayout
+            android:id="@+id/animalItemLayout"
+            android:layout_width="200dp"
+            android:layout_height="64dp"
+            android:orientation="vertical" android:layout_weight="3">
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black" />
+                <TextView
+                    android:id="@+id/animalName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/animalContinent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
-</LinearLayout>
+                <TextView
+                    android:id="@+id/animalContinent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+            </LinearLayout>
+    <ImageView
+        android:id="@+id/delete_animal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/delete_button"
+        android:layout_weight="1"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -57,5 +57,9 @@ dependencies {
 
     implementation("com.google.code.gson:gson:2.10.1")
 
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+
+    implementation("androidx.cardview:cardview:1.0.0")
+
 
 }

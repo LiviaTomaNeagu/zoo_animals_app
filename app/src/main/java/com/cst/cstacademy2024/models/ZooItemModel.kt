@@ -12,7 +12,8 @@ enum class ContinentType(
     NORTH_AMERICA(3, "brown", "right", false),
     SOUTH_AMERICA(4, "orange", "right", true),
     AUSTRALIA(5, "purple", "center", false),
-    ANTARCTICA(6, "blue", "center", true)
+    ANTARCTICA(6, "blue", "center", true),
+    OTHER(7, "white", "center", false)
 }
 
 sealed class ZooItemModel(
