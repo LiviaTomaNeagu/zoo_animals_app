@@ -9,28 +9,7 @@
         android:id="@+id/zooAnimalListFragment"
         android:name="com.cst.cstacademy2024.ZooAnimalListFragment"
         android:label="Zoo Animal List"
-        tools:layout="@layout/fragment_zoo_animal_list">
-        <action
-            android:id="@+id/action_zooAnimalListFragment_to_animalDetailFragment"
-            app:destination="@id/animalDetailFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/animalDetailFragment"
-        android:name="com.cst.cstacademy2024.AnimalDetailFragment"
-        android:label="Animal Detail"
-        tools:layout="@layout/fragment_animal_detail">
-        <argument
-            android:name="animalName"
-            app:argType="string" />
-        <argument
-            android:name="continent"
-            app:argType="string" />
-        <argument
-            android:name="color"
-            app:argType="string" />
-    </fragment>
-
+        tools:layout="@layout/fragment_zoo_animal_list"/>
 
 
 </navigation>

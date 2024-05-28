@@ -16,8 +16,14 @@ import com.cst.cstacademy2024.R
 import com.cst.cstacademy2024.models.ZooAnimalModel
 import com.cst.cstacademy2024.models.ContinentType
 
-class ZooAdapter(private val items: List<ZooAnimalModel>) : RecyclerView.Adapter<ZooAdapter.ZooViewHolder>() {
+class ZooAdapter() : RecyclerView.Adapter<ZooAdapter.ZooViewHolder>() {
 
+    private var items: List<ZooAnimalModel> = listOf()
+
+    fun submitList(newItems: List<ZooAnimalModel>) {
+        items = newItems
+        notifyDataSetChanged()  // Note: For better performance, consider using DiffUtil
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZooViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_zoo_animal, parent, false)

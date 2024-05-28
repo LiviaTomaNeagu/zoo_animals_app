@@ -37,7 +37,10 @@
         android:id="@+id/delete_animal"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:src="@drawable/delete_button"
-        android:layout_weight="1"/>
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/delete"
+        android:layout_weight="1"
+        />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

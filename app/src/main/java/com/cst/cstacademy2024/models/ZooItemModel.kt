@@ -1,5 +1,8 @@
 package com.cst.cstacademy2024.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 enum class ContinentType(
     val key: Int,
     val backgroundColor: String,
@@ -16,17 +19,12 @@ enum class ContinentType(
     OTHER(7, "white", "center", false)
 }
 
-sealed class ZooItemModel(
-    open val type: ContinentType,
-    open val animalName: String,
-    open val continent: String
-)
-
+@Entity
 data class ZooAnimalModel(
-    val id: Int,
-    override val animalName: String,
-    override val continent: String,
-    override val type: ContinentType  // I'm assuming you might want to use the type somewhere.
-) : ZooItemModel(type, animalName, continent)
-
+    @PrimaryKey(autoGenerate = true)
+    val id: Int =0,
+    val animalName: String,
+    val continent: String,
+   // val type: ContinentType  // Using an enum to represent the type if needed.
+)
 
